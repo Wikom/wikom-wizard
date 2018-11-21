@@ -2,7 +2,7 @@
  * Created by rouven on 13.06.17.
  */
 
-import * as types from './actionTypes'
+import * as types from './actionTypes';
 
 export const initializeWizard = (name) => ({
     type: types.INITIALIZE,
@@ -28,4 +28,9 @@ export const setError = (name, error) => ({
     type: types.SET_ERROR,
     name,
     error
+});
+
+export const stepForwardPreservingErrors = (name) => ({
+    type: types.STEP_FORWARD_PRESERVING_ERRORS,
+    name
 });
