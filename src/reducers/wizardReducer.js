@@ -33,10 +33,11 @@ const wizardReducer = (state = {}, action) => {
 
             return nextState;
         }
-        case types.STEP_FORWARD_PRESERVING_ERRORS:
-            let nextState = Object.assign({}, state);
+        case types.STEP_FORWARD_PRESERVING_ERRORS: {
+            const nextState = Object.assign({}, state);
             nextState[action.name].step = state[action.name].step + 1;
             return nextState;
+        }
         default:
 
             return state;
