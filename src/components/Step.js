@@ -2,10 +2,10 @@
  * Created by rouven on 13.06.17.
  */
 
-import React, {Component} from 'react'
-import PropTypes from 'prop-types'
-import {connect} from 'react-redux'
-import {stepForward, stepBack} from '../actions/wizardActions'
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import {stepForward, stepBack, stepForwardPreservingErrors} from '../actions/wizardActions';
 
 class Step extends Component {
 
@@ -35,7 +35,8 @@ class Step extends Component {
 
 const mapDispatch = (dispatch, {wizard}) => ({
     stepForward: () => dispatch(stepForward(wizard)),
-    stepBack: () => dispatch(stepBack(wizard))
+    stepBack: () => dispatch(stepBack(wizard)),
+    stepForwardPreservingErrors: () => dispatch(stepForwardPreservingErrors(wizard))
 });
 
 const StepContainer = connect(null, mapDispatch)(Step);
@@ -48,4 +49,4 @@ StepContainer.propTypes = {
     onLeave: PropTypes.func
 };
 
-export default StepContainer
+export default StepContainer;

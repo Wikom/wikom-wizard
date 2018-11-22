@@ -2,7 +2,7 @@
  * Created by rouven on 13.06.17.
  */
 
-import * as types from '../actions/actionTypes'
+import * as types from '../actions/actionTypes';
 
 const wizardReducer = (state = {}, action) => {
     switch (action.type) {
@@ -33,10 +33,15 @@ const wizardReducer = (state = {}, action) => {
 
             return nextState;
         }
+        case types.STEP_FORWARD_PRESERVING_ERRORS: {
+            const nextState = Object.assign({}, state);
+            nextState[action.name].step = state[action.name].step + 1;
+            return nextState;
+        }
         default:
 
             return state;
     }
 };
 
-export default wizardReducer
+export default wizardReducer;
